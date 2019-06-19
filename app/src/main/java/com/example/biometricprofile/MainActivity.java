@@ -130,7 +130,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        if(!series.isEmpty())
             graph.addSeries(series);
 //        System.out.println("yeeeeeeeeet2");
+<<<<<<< HEAD
         GraphView graph = (GraphView) findViewById(R.id.graph);
+=======
+//        GraphView graph = (GraphView) findViewById(R.id.graph);
+>>>>>>> 2efcb378296f0f440d196e9618d827852bac2bf2
         manager.registerListener(listener, manager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),SensorManager.SENSOR_DELAY_GAME);
 
     }

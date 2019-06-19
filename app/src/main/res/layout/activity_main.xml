@@ -22,4 +22,9 @@
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer" />
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 2efcb378296f0f440d196e9618d827852bac2bf2
 </android.support.v4.widget.DrawerLayout>
