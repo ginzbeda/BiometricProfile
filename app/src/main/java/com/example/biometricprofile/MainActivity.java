@@ -3,6 +3,7 @@ package com.example.biometricprofile;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -77,11 +78,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //Sensor Listening
 
         manager = (SensorManager) this.getSystemService(Context.SENSOR_SERVICE);
-        series = new LineGraphSeries<DataPoint>();
+        series = new LineGraphSeries<>();
         listener = new SensorEventListener() {
 //            @SuppressLint("SetTextI18n")
 
             int count = 0;
+            @SuppressLint("SetTextI18n")
             @Override
             public void onSensorChanged(SensorEvent event) {
                 Sensor sensor = event.sensor;
@@ -108,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         };
 
 
-        GraphView graph = (GraphView) findViewById(R.id.graph);
+        GraphView graph = findViewById(R.id.graph);
 
 
 //        Double x,y;
@@ -130,11 +132,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        if(!series.isEmpty())
             graph.addSeries(series);
 //        System.out.println("yeeeeeeeeet2");
-<<<<<<< HEAD
-        GraphView graph = (GraphView) findViewById(R.id.graph);
-=======
+
 //        GraphView graph = (GraphView) findViewById(R.id.graph);
->>>>>>> 2efcb378296f0f440d196e9618d827852bac2bf2
+
         manager.registerListener(listener, manager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),SensorManager.SENSOR_DELAY_GAME);
 
     }
@@ -175,7 +175,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
