@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //    private double [][] points = new double[100][2];
     private LineGraphSeries<DataPoint> series;
     TextView xValue, yValue, zValue;
+    int lastX = 0;
 
 
 
@@ -95,8 +96,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //                    points[count][1] = event.values[1];
 
                     System.out.println(series.findDataPointAtX(count+1));
-
-                    series.appendData(new DataPoint( event.values[0],event.values[1]), false, 500);
+//                    series.resetData(new DataPoint[] {});
+                    series.appendData(new DataPoint( lastX++,event.values[1]), true, 500);
+//                    GraphView graph = findViewById(R.id.graph);
+//
                     System.out.println(series.findDataPointAtX(count+1));
                     count++;
                     xValue.setText("xValue: " + event.values[0]);
@@ -109,8 +112,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         };
 
-
+//        series.resetData(new DataPoint[] {});
         GraphView graph = findViewById(R.id.graph);
+
 
 
 //        Double x,y;
