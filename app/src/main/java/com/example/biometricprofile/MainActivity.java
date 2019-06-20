@@ -26,17 +26,14 @@ import android.widget.TextView;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
-import com.jjoe64.graphview.series.Series;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String TAG = "MainActivity";
     private SensorManager manager;
     private SensorEventListener listener;
-//    ArrayList<Double> points = new ArrayList<>();
-//    private double [][] points = new double[100][2];
+    private Profile prof = new Profile();
+
     private LineGraphSeries<DataPoint> series;
     TextView xValue, yValue, zValue;
     int lastX = 0;
@@ -49,9 +46,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        setContentView(R.layout.content_main);
 
-//        setContentView(R.layout.content_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -74,6 +69,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         xValue = findViewById(R.id.xValue);
         yValue = findViewById(R.id.yValue);
         zValue = findViewById(R.id.zValue);
+//        GraphView graph = findViewById(R.id.graph);
 
 
         //Sensor Listening
@@ -81,7 +77,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         manager = (SensorManager) this.getSystemService(Context.SENSOR_SERVICE);
         series = new LineGraphSeries<>();
         listener = new SensorEventListener() {
-//            @SuppressLint("SetTextI18n")
 
             int count = 0;
             @SuppressLint("SetTextI18n")
@@ -90,54 +85,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Sensor sensor = event.sensor;
                 //Accelerometer
                 if(sensor.getType() == Sensor.TYPE_ACCELEROMETER){
-
-//                    points.add((double) event.values[0]);
-//                    points.add((double)event.values[1]);
-//                    points[count][1] = event.values[1];
-
-                    System.out.println(series.findDataPointAtX(count+1));
-//                    series.resetData(new DataPoint[] {});
-                    series.appendData(new DataPoint( lastX++,event.values[1]), true, 500);
-//                    GraphView graph = findViewById(R.id.graph);
-//
-                    System.out.println(series.findDataPointAtX(count+1));
+                    series.appendData(new DataPoint(lastX++,event.values[0]), true, 500);
                     count++;
-                    xValue.setText("xValue: " + event.values[0]);
-                    yValue.setText("yValue: " + event.values[1]);
-                    zValue.setText("zValue: " + event.values[2]);
+                    prof.setAccel((int)event.values[0],(int) event.values[1],(int) event.values[2]);
+                    xValue.setText("xValue: " + (int) event.values[0]);
+                    yValue.setText("yValue: " + (int) event.values[1]);
+                    zValue.setText("zValue: " + (int) event.values[2]);
                 }
             }
             @Override
             public void onAccuracyChanged(Sensor sensor, int accuracy) {
             }
         };
-
-//        series.resetData(new DataPoint[] {});
         GraphView graph = findViewById(R.id.graph);
-
-
-
-//        Double x,y;
-
-//       DataPoint data = new DataPoint(x,y);
-//       series.appendData(data, true, 1);
-//       System.out.println(graph);
-//       graph.addSeries(series);
-//        x= 0.5;
-
-//        for(int i  = 0; i<500; i++) {
-////            x = x +0.1;
-////            y = Math.sin(x);
-////            System.out.println("X: " + x + "Y: " + y);
-////            series.appendData(new DataPoint(x,y), true, 500);
-//        }
-        System.out.println("yeeeeeeeeet: " + series.getHighestValueX());
-
-//        if(!series.isEmpty())
-            graph.addSeries(series);
-//        System.out.println("yeeeeeeeeet2");
-
-//        GraphView graph = (GraphView) findViewById(R.id.graph);
+        //Display Graph
+        graph.addSeries(series);
 
         manager.registerListener(listener, manager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),SensorManager.SENSOR_DELAY_GAME);
 
