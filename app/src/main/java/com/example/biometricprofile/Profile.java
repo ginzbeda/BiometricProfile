@@ -14,8 +14,8 @@ public class Profile {
         accel = new int[]{0,0,0};
     }
 
-    public static int[] getAccel() {
-        return accel;
+    public static int getAccel() {
+        return accel[0];
     }
 
     public static void setAccel(int x, int y, int z) {

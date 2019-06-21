@@ -27,23 +27,28 @@ import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
+import static com.example.biometricprofile.Profile.setAccel;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String TAG = "MainActivity";
     private SensorManager manager;
     private SensorEventListener listener;
-    private Profile prof = new Profile();
+    private Profile prof;
+
 
     private LineGraphSeries<DataPoint> series;
     TextView xValue, yValue, zValue;
     int lastX = 0;
 
-
-
+    public MainActivity() {
+        prof = new Profile();
+    }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -85,12 +90,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Sensor sensor = event.sensor;
                 //Accelerometer
                 if(sensor.getType() == Sensor.TYPE_ACCELEROMETER){
-                    series.appendData(new DataPoint(lastX++,event.values[0]), true, 500);
+
                     count++;
-                    prof.setAccel((int)event.values[0],(int) event.values[1],(int) event.values[2]);
+                    setAccel((int)event.values[0],(int) event.values[1],(int) event.values[2]);
+                    series.appendData(new DataPoint(lastX++,event.values[0]), true, 500);
                     xValue.setText("xValue: " + (int) event.values[0]);
                     yValue.setText("yValue: " + (int) event.values[1]);
                     zValue.setText("zValue: " + (int) event.values[2]);
+                    System.out.println("accel: "+ Profile.getAccel());
+                }
+                else if(sensor.getType() == Sensor.TYPE_HEART_BEAT){
+                    Profile.setHeartBeat((int) event.values[0]);
+                }
+                else if(sensor.getType() == Sensor.TYPE_HEART_RATE){
+                    Profile.setHeartRate((int) event.values[0]);
                 }
             }
             @Override
