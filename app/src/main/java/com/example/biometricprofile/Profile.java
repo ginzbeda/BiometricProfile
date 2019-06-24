@@ -45,8 +45,5 @@ public class Profile {
         return heartBeat;
     }
 
-    public static void
-            (int data) {
-        heartBeat = data;
-    }
+    public static void setHeartBeat(int data) { heartBeat = data;}
 }
