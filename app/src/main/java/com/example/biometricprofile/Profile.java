@@ -1,11 +1,15 @@
 package com.example.biometricprofile;
 
+import java.util.Timer;
+
 public class Profile {
-    private static int heartBeat;
+    private static long heartBeat;
     private static int heartRate;
     private static int bloodPressure =0;
     private static int[] accel;
     private static String name;
+
+    private static long beat =-1;
 
     Profile(){
         name = "";
@@ -37,13 +41,14 @@ public class Profile {
         return heartRate;
     }
 
-    public static void setHeartRate(int data) {
-        heartRate = data;
-    }
+    public static void setHeartRate(int data) { heartRate = data;}
 
-    public static int getHeartBeat() {
+
+    public static long getHeartBeat() {
+
+
         return heartBeat;
     }
 
-    public static void setHeartBeat(int data) { heartBeat = data;}
+    public static void setHeartBeat(long data) { heartBeat = data;}
 }

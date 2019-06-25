@@ -35,10 +35,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private SensorManager manager;
     private SensorEventListener listener;
     private Profile prof;
+    private long beat = -1; //heartbeat time
 
 
     private LineGraphSeries<DataPoint> series;
-    TextView xValue, yValue, zValue;
+    TextView xValue, yValue, zValue, heartBeat;
     int lastX = 0;
 
     public MainActivity() {
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         xValue = findViewById(R.id.xValue);
         yValue = findViewById(R.id.yValue);
         zValue = findViewById(R.id.zValue);
+        heartBeat = findViewById(R.id.heartBeat);
 //        GraphView graph = findViewById(R.id.graph);
 
 
@@ -82,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         manager = (SensorManager) this.getSystemService(Context.SENSOR_SERVICE);
         series = new LineGraphSeries<>();
         listener = new SensorEventListener() {
+
 
             int count = 0;
             @SuppressLint("SetTextI18n")
@@ -100,10 +103,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     System.out.println("accel: "+ Profile.getAccel());
                 }
                 else if(sensor.getType() == Sensor.TYPE_HEART_BEAT){
-                    Profile.setHeartBeat((int) event.values[0]);
+                    System.out.println(event.values);
+
+                    if(beat!=-1) {
+                        heartBeat.setText("heartBeat: " + event.values);
+                        prof.setHeartBeat(beat - System.currentTimeMillis());
+
+//                        Profile.setHeartBeat((int) event.values[0]);
+                    }
+                    System.out.println(prof.getHeartBeat());
+                    beat = System.currentTimeMillis();
                 }
                 else if(sensor.getType() == Sensor.TYPE_HEART_RATE){
-                    Profile.setHeartRate((int) event.values[0]);
+                    prof.setHeartRate((int) event.values[0]);
                 }
             }
             @Override
@@ -115,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         graph.addSeries(series);
 
         manager.registerListener(listener, manager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),SensorManager.SENSOR_DELAY_GAME);
-
+        manager.registerListener(listener,manager.getDefaultSensor(Sensor.TYPE_HEART_BEAT), SensorManager.SENSOR_DELAY_GAME);
     }
 
     @Override

@@ -34,6 +34,13 @@
         android:layout_below="@+id/yValue"
         android:id="@+id/zValue"/>
 
+    <TextView
+        android:id="@+id/heartBeat"
+        android:layout_width="150sp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/zValue"
+        android:layout_marginTop="-221dp" />
+
     <com.jjoe64.graphview.GraphView
         android:id="@+id/graph"
         android:layout_width="400dp"
