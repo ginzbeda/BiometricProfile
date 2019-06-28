@@ -76,6 +76,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         yValue = findViewById(R.id.yValue);
         zValue = findViewById(R.id.zValue);
         heartBeat = findViewById(R.id.heartBeat);
+
+
 //        GraphView graph = findViewById(R.id.graph);
 
 
@@ -91,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onSensorChanged(SensorEvent event) {
                 Sensor sensor = event.sensor;
+
                 //Accelerometer
                 if(sensor.getType() == Sensor.TYPE_ACCELEROMETER){
 
@@ -100,16 +103,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     xValue.setText("xValue: " + (int) event.values[0]);
                     yValue.setText("yValue: " + (int) event.values[1]);
                     zValue.setText("zValue: " + (int) event.values[2]);
-                    System.out.println("accel: "+ Profile.getAccel());
+//                    System.out.println("accel: "+ Profile.getAccel());
                 }
                 else if(sensor.getType() == Sensor.TYPE_HEART_BEAT){
                     System.out.println(event.values);
 
                     if(beat!=-1) {
+                        System.out.println("WHAT IS HAPPENING");
                         heartBeat.setText("heartBeat: " + event.values);
                         prof.setHeartBeat(beat - System.currentTimeMillis());
 
 //                        Profile.setHeartBeat((int) event.values[0]);
+                    }
+                    else{
+                        System.out.println("OK WE OK");
+                        heartBeat.setText("heartBeat: " + 0);
+                        prof.setHeartBeat(beat - System.currentTimeMillis());
                     }
                     System.out.println(prof.getHeartBeat());
                     beat = System.currentTimeMillis();
@@ -122,9 +131,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onAccuracyChanged(Sensor sensor, int accuracy) {
             }
         };
-        GraphView graph = findViewById(R.id.graph);
+//        GraphView graph = findViewById(R.id.graph);
         //Display Graph
-        graph.addSeries(series);
+//        graph.addSeries(series);
 
         manager.registerListener(listener, manager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),SensorManager.SENSOR_DELAY_GAME);
         manager.registerListener(listener,manager.getDefaultSensor(Sensor.TYPE_HEART_BEAT), SensorManager.SENSOR_DELAY_GAME);

@@ -39,11 +39,15 @@
         android:layout_width="150sp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/zValue"
-        android:layout_marginTop="-221dp" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="142dp"
+        android:layout_marginLeft="142dp"
+        android:layout_marginTop="-194dp" />
 
-    <com.jjoe64.graphview.GraphView
-        android:id="@+id/graph"
-        android:layout_width="400dp"
-        android:layout_height="336dp"
-        android:layout_below="@+id/zValue"/>
+    <!--<com.jjoe64.graphview.GraphView-->
+        <!--android:id="@+id/graph"-->
+        <!--android:layout_width="400dp"-->
+        <!--android:layout_height="336dp"-->
+        <!--android:layout_below="@+id/zValue"/>-->
 </RelativeLayout>

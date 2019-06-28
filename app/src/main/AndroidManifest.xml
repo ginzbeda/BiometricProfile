@@ -19,6 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--<permissions>-->
+            <!--<permission>-->
+                <!--android:permission.BODY_SENSORS-->
+            <!--</permission>-->
+        <!--</permissions>-->
     </application>
 
 </manifest>
