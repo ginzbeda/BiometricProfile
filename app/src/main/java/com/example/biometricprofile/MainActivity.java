@@ -103,7 +103,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     xValue.setText("xValue: " + (int) event.values[0]);
                     yValue.setText("yValue: " + (int) event.values[1]);
                     zValue.setText("zValue: " + (int) event.values[2]);
-//                    System.out.println("accel: "+ Profile.getAccel());
                 }
                 else if(sensor.getType() == Sensor.TYPE_HEART_BEAT){
                     System.out.println(event.values);
@@ -112,8 +111,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         System.out.println("WHAT IS HAPPENING");
                         heartBeat.setText("heartBeat: " + event.values);
                         prof.setHeartBeat(beat - System.currentTimeMillis());
-
-//                        Profile.setHeartBeat((int) event.values[0]);
                     }
                     else{
                         System.out.println("OK WE OK");

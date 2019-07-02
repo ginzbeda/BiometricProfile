@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30sp"
         android:layout_below="@+id/yValue"
-        android:id="@+id/zValue"/>
+    android:id="@+id/zValue"/>
 
     <TextView
         android:id="@+id/heartBeat"
