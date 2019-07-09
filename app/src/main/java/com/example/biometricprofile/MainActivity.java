@@ -136,6 +136,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         manager.registerListener(listener,manager.getDefaultSensor(Sensor.TYPE_HEART_BEAT), SensorManager.SENSOR_DELAY_GAME);
     }
 
+
+    //SPOTIFY
+    @Override
+    protected void onStart() {
+        super.onStart();
+        // We will start writing our code here.
+    }
+
+    private void connected() {
+        // Then we will write some more code here.
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        // Aaand we will finish off here.
+    }
+
+
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
