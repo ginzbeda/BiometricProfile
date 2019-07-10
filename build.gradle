@@ -4,14 +4,26 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral()
+        flatDir {
+            dirs 'libs'
+        }
         
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.1'
-//        implementation project(':spotify-app-remote')
-//        implementation "com.google.code.gson:gson:2.8.5"
+
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+
+
+        dependencies {
+            implementation fileTree(dir: 'libs', include: ['*.jar'])
+            implementation 'com.spotify.sdk:spotify-auth:1.0.aar'
+
+            // All other dependencies for your app should also be here:
+            implementation 'com.android.support:appcompat-v7:21.0.3'
+        }
     }
 }
 
@@ -19,6 +31,10 @@ allprojects {
     repositories {
         google()
         jcenter()
+        mavenCentral()
+        flatDir {
+            dirs 'libs'
+        }
         
     }
 }
