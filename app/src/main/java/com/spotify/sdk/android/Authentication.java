@@ -1,4 +1,7 @@
 package com.spotify.sdk.android;
+
+import com.spotify.android.appremote.api.SpotifyAppRemote;
+
 //
 //import android.content.Intent;
 //import android.net.Uri;
@@ -18,9 +21,21 @@ package com.spotify.sdk.android;
 //
 //import java.io.IOException;
 //import java.util.Locale;
-//
+
+import com.spotify.android.appremote.api.ConnectionParams;
+import com.spotify.android.appremote.api.Connector;
+import com.spotify.android.appremote.api.SpotifyAppRemote;
+
+import com.spotify.protocol.client.Subscription;
+import com.spotify.protocol.types.PlayerState;
+import com.spotify.protocol.types.Track;
+
 public class Authentication extends AppCompatActivity {
     private static final String TAG = "SPOTIFY_AUTH";
+    //Spotify Credentials
+    private static final String CLIENT_ID = "897664b46ec84e14838f852fed266631";
+    private static final String REDIRECT_URI = "https%3A%2F%2Fawning.app%2F";
+    private SpotifyAppRemote mSpotifyAppRemote;
 //    public static final String CLIENT_ID = "089d841ccc194c10a77afad9e1c11d54";
 //    public static final int AUTH_TOKEN_REQUEST_CODE = 0x10;
 //    public static final int AUTH_CODE_REQUEST_CODE = 0x11;

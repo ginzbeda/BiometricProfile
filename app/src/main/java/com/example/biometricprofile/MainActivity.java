@@ -44,10 +44,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private SensorEventListener listener;
     private Profile prof;
     private long beat = -1; //heartbeat time
-    //Spotify Credentials
-    private static final String CLIENT_ID = "897664b46ec84e14838f852fed266631";
-    private static final String REDIRECT_URI = "https%3A%2F%2Fawning.app%2F";
-    private SpotifyAppRemote mSpotifyAppRemote;
 
 
     private LineGraphSeries<DataPoint> series;
