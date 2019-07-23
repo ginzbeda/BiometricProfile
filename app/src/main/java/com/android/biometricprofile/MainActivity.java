@@ -39,7 +39,7 @@ import static com.example.biometricprofile.Profile.setAccel;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "sMainActivity";
     private SensorManager manager;
     private SensorEventListener listener;
     private Profile prof;
