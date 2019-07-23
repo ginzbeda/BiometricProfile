@@ -29,13 +29,19 @@ import com.spotify.android.appremote.api.SpotifyAppRemote;
 import com.spotify.protocol.client.Subscription;
 import com.spotify.protocol.types.PlayerState;
 import com.spotify.protocol.types.Track;
+import com.spotify.sdk.android.authentication.AuthenticationClient;
+import com.spotify.sdk.android.authentication.AuthenticationRequest;
+import com.spotify.sdk.android.authentication.AuthenticationResponse;
 
 public class Authentication extends AppCompatActivity {
     private static final String TAG = "SPOTIFY_AUTH";
     //Spotify Credentials
     private static final String CLIENT_ID = "897664b46ec84e14838f852fed266631";
+    private static final int REQUEST_CODE = 1337;
     private static final String REDIRECT_URI = "BiometricProfile://callback";
     private SpotifyAppRemote mSpotifyAppRemote;
+    private AuthenticationRequest.Builder builder;
+    private AuthenticationRequest request;
 //    public static final String CLIENT_ID = "089d841ccc194c10a77afad9e1c11d54";
 //    public static final int AUTH_TOKEN_REQUEST_CODE = 0x10;
 //    public static final int AUTH_CODE_REQUEST_CODE = 0x11;
@@ -93,6 +99,19 @@ public class Authentication extends AppCompatActivity {
 //        });
     }
 
+    public void clientLogIn()
+    {
+        builder = new AuthenticationRequest.Builder(CLIENT_ID, AuthenticationResponse.Type.TOKEN, REDIRECT_URI);
+        builder.setScopes(new String[]{"streaming"});
+
+        request = builder.build();
+
+ //         IDK Help
+ //       AuthenticationClient.openLoginActivity(this, REQUEST_CODE, request);
+
+    }
+
+
     public void onRequestCodeClicked(View view) {
 //        final AuthenticationRequest request = getAuthenticationRequest(AuthenticationResponse.Type.CODE);
 //        AuthenticationClient.openLoginActivity(this, AUTH_CODE_REQUEST_CODE, request);
@@ -112,19 +131,31 @@ public class Authentication extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        final AuthenticationResponse response = AuthenticationClient.getResponse(resultCode, data);
-//
-//        if (AUTH_TOKEN_REQUEST_CODE == requestCode) {
-//            mAccessToken = response.getAccessToken();
-//            updateTokenView();
-//        } else if (AUTH_CODE_REQUEST_CODE == requestCode) {
-//            mAccessCode = response.getCode();
-//            updateCodeView();
-//        }
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+
+        // Check if result comes from the correct activity
+        if (requestCode == REQUEST_CODE) {
+            AuthenticationResponse response = AuthenticationClient.getResponse(resultCode, intent);
+
+            switch (response.getType()) {
+                // Response was successful and contains auth token
+                case TOKEN:
+                    // Handle successful response
+                    break;
+
+                // Auth flow returned an error
+                case ERROR:
+                    // Handle error response
+                    break;
+
+                // Most likely auth flow was cancelled
+                default:
+                    // Handle other cases
+            }
+        }
     }
-//
+
     private void setResponse(final String text) {
 //        runOnUiThread(new Runnable() {
 //            @Override
@@ -156,5 +187,5 @@ public class Authentication extends AppCompatActivity {
 //                .scheme(getString(R.string.com_spotify_sdk_redirect_scheme))
 //                .authority(getString(R.string.com_spotify_sdk_redirect_host))
 //                .build();
-//    }
+    }
 }
