@@ -21,16 +21,7 @@
 ////
 ////import java.io.IOException;
 ////import java.util.Locale;
-//
-//import com.spotify.android.appremote.api.ConnectionParams;
-//import com.spotify.android.appremote.api.Connector;
-//import com.spotify.android.appremote.api.SpotifyAppRemote;
-//
-<<<<<<< HEAD
-//import com.spotify.protocol.client.Subscription;
-//import com.spotify.protocol.types.PlayerState;
-//import com.spotify.protocol.types.Track;
-=======
+
 //import java.io.IOException;
 //import java.util.Locale;
 
@@ -57,17 +48,6 @@ public class Authentication extends AppCompatActivity {
 //    public static final String CLIENT_ID = "089d841ccc194c10a77afad9e1c11d54";
 //    public static final int AUTH_TOKEN_REQUEST_CODE = 0x10;
 //    public static final int AUTH_CODE_REQUEST_CODE = 0x11;
->>>>>>> 680a21516d1336df40a91645a83e67e482a91641
-//
-//public class Authentication extends AppCompatActivity {
-//    private static final String TAG = "SPOTIFY_AUTH";
-//    //Spotify Credentials
-//    private static final String CLIENT_ID = "897664b46ec84e14838f852fed266631";
-//    private static final String REDIRECT_URI = "BiometricProfile://callback";
-//    private SpotifyAppRemote mSpotifyAppRemote;
-////    public static final String CLIENT_ID = "089d841ccc194c10a77afad9e1c11d54";
-////    public static final int AUTH_TOKEN_REQUEST_CODE = 0x10;
-////    public static final int AUTH_CODE_REQUEST_CODE = 0x11;
 ////
 ////    private final OkHttpClient mOkHttpClient = new OkHttpClient();
 ////    private String mAccessToken;
