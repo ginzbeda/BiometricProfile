@@ -1,6 +1,6 @@
 Client ID: 897664b46ec84e14838f852fed266631
 Client Secret: a912efd97bf949beacf24ee4b126e6f2
-Android Packages: com.example.biometricprofile 
+Android Packages: com.android.biometricprofile
 Package Fingerprint: 26:58:57:34:C1:43:72:0E:2A:3C:DF:8D:AF:CB:6B:41:08:8B:C0:E4
 Redirect URI: https%3A%2F%2Fawning.app%2F
 scope: playlist-read-private
