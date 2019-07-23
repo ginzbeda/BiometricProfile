@@ -1,4 +1,4 @@
-package com.example.biometricprofile;
+package com.android.biometricprofile ;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -35,7 +35,7 @@ import com.spotify.protocol.client.Subscription;
 import com.spotify.protocol.types.PlayerState;
 import com.spotify.protocol.types.Track;
 
-import static com.example.biometricprofile.Profile.setAccel;
+import static com.android.biometricprofile.Profile.setAccel;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 

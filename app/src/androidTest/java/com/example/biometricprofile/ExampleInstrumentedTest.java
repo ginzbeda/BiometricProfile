@@ -1,4 +1,4 @@
-package com.example.biometricprofile;
+package com.android.biometricprofile;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.biometricprofile", appContext.getPackageName());
+        assertEquals("com.android.biometricprofile", appContext.getPackageName());
     }
 }

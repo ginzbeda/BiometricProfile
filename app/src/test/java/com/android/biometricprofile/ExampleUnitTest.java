@@ -1,4 +1,4 @@
-package com.example.biometricprofile;
+package com.android.biometricprofile;
 
 import org.junit.Test;
 
