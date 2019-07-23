@@ -26,9 +26,38 @@
 //import com.spotify.android.appremote.api.Connector;
 //import com.spotify.android.appremote.api.SpotifyAppRemote;
 //
+<<<<<<< HEAD
 //import com.spotify.protocol.client.Subscription;
 //import com.spotify.protocol.types.PlayerState;
 //import com.spotify.protocol.types.Track;
+=======
+//import java.io.IOException;
+//import java.util.Locale;
+
+import com.spotify.android.appremote.api.ConnectionParams;
+import com.spotify.android.appremote.api.Connector;
+import com.spotify.android.appremote.api.SpotifyAppRemote;
+
+import com.spotify.protocol.client.Subscription;
+import com.spotify.protocol.types.PlayerState;
+import com.spotify.protocol.types.Track;
+import com.spotify.sdk.android.authentication.AuthenticationClient;
+import com.spotify.sdk.android.authentication.AuthenticationRequest;
+import com.spotify.sdk.android.authentication.AuthenticationResponse;
+
+public class Authentication extends AppCompatActivity {
+    private static final String TAG = "SPOTIFY_AUTH";
+    //Spotify Credentials
+    private static final String CLIENT_ID = "897664b46ec84e14838f852fed266631";
+    private static final int REQUEST_CODE = 1337;
+    private static final String REDIRECT_URI = "BiometricProfile://callback";
+    private SpotifyAppRemote mSpotifyAppRemote;
+    private AuthenticationRequest.Builder builder;
+    private AuthenticationRequest request;
+//    public static final String CLIENT_ID = "089d841ccc194c10a77afad9e1c11d54";
+//    public static final int AUTH_TOKEN_REQUEST_CODE = 0x10;
+//    public static final int AUTH_CODE_REQUEST_CODE = 0x11;
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 //
 //public class Authentication extends AppCompatActivity {
 //    private static final String TAG = "SPOTIFY_AUTH";
@@ -135,6 +164,7 @@
 ////        });
 //    }
 //
+<<<<<<< HEAD
 //    private void updateTokenView() {
 ////        final TextView tokenView = findViewById(R.id.token_text_view);
 ////        tokenView.setText(getString(R.string.token, mAccessToken));
@@ -158,3 +188,107 @@
 ////                .build();
 ////    }
 //}
+=======
+//            @Override
+//            public void onResponse(Call call, Response response) throws IOException {
+//                try {
+//                    final JSONObject jsonObject = new JSONObject(response.body().string());
+//                    setResponse(jsonObject.toString(3));
+//                } catch (JSONException e) {
+//                    setResponse("Failed to parse data: " + e);
+//                }
+//            }
+//        });
+    }
+
+    public void clientLogIn()
+    {
+        builder = new AuthenticationRequest.Builder(CLIENT_ID, AuthenticationResponse.Type.TOKEN, REDIRECT_URI);
+        builder.setScopes(new String[]{"streaming"});
+
+        request = builder.build();
+
+ //         IDK Help
+ //       AuthenticationClient.openLoginActivity(this, REQUEST_CODE, request);
+
+    }
+
+
+    public void onRequestCodeClicked(View view) {
+//        final AuthenticationRequest request = getAuthenticationRequest(AuthenticationResponse.Type.CODE);
+//        AuthenticationClient.openLoginActivity(this, AUTH_CODE_REQUEST_CODE, request);
+    }
+
+    public void onRequestTokenClicked(View view) {
+//        final AuthenticationRequest request = getAuthenticationRequest(AuthenticationResponse.Type.TOKEN);
+//        AuthenticationClient.openLoginActivity(this, AUTH_TOKEN_REQUEST_CODE, request);
+    }
+
+    private AuthenticationRequest getAuthenticationRequest(AuthenticationResponse.Type type) {
+//        return new AuthenticationRequest.Builder(CLIENT_ID, type, getRedirectUri().toString())
+//                .setShowDialog(false)
+//                .setScopes(new String[]{"user-read-email"})
+//                .setCampaign("your-campaign-token")
+//                .build();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+
+        // Check if result comes from the correct activity
+        if (requestCode == REQUEST_CODE) {
+            AuthenticationResponse response = AuthenticationClient.getResponse(resultCode, intent);
+
+            switch (response.getType()) {
+                // Response was successful and contains auth token
+                case TOKEN:
+                    // Handle successful response
+                    break;
+
+                // Auth flow returned an error
+                case ERROR:
+                    // Handle error response
+                    break;
+
+                // Most likely auth flow was cancelled
+                default:
+                    // Handle other cases
+            }
+        }
+    }
+
+    private void setResponse(final String text) {
+//        runOnUiThread(new Runnable() {
+//            @Override
+//            public void run() {
+//                final TextView responseView = findViewById(R.id.response_text_view);
+//                responseView.setText(text);
+//            }
+//        });
+    }
+
+    private void updateTokenView() {
+//        final TextView tokenView = findViewById(R.id.token_text_view);
+//        tokenView.setText(getString(R.string.token, mAccessToken));
+    }
+
+    private void updateCodeView() {
+//        final TextView codeView = findViewById(R.id.code_text_view);
+//        codeView.setText(getString(R.string.code, mAccessCode));
+    }
+
+    private void cancelCall() {
+//        if (mCall != null) {
+//            mCall.cancel();
+//        }
+    }
+
+    private Uri getRedirectUri() {
+//        return new Uri.Builder()
+//                .scheme(getString(R.string.com_spotify_sdk_redirect_scheme))
+//                .authority(getString(R.string.com_spotify_sdk_redirect_host))
+//                .build();
+    }
+}
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641

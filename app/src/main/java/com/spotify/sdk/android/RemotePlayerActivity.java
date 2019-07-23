@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ///*
 // * Copyright (c) 2018 Spotify AB
 // *
@@ -19,6 +20,29 @@
 // * under the License.
 // */
 //
+=======
+/*
+ * Copyright (c) 2018 Spotify AB
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 //package com.spotify.sdk.android;
 ////
 ////import android.annotation.SuppressLint;
@@ -210,10 +234,19 @@
 ////
 ////            mSeekBar.setEnabled(true);
 ////        }
+<<<<<<< HEAD
 //    };
 //
 //    @Override
 //    protected void onCreate(final Bundle savedInstanceState) {
+=======
+//        }
+//
+//        ;
+//
+//        @Override
+//        protected void onCreate(final Bundle savedInstanceState) {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 ////        setTheme(R.style.AppTheme);
 ////        super.onCreate(savedInstanceState);
 ////        setContentView(R.layout.app_remote_layout);
@@ -270,6 +303,7 @@
 ////
 ////        onDisconnected();
 ////        onConnectAndAuthorizedClicked(null);
+<<<<<<< HEAD
 //    }
 //
 //    @Override
@@ -280,6 +314,18 @@
 //    }
 //
 //    private void onConnected() {
+=======
+//        }
+//
+//        @Override
+//        protected void onStop() {
+////        super.onStop();
+////        SpotifyAppRemote.disconnect(mSpotifyAppRemote);
+////        onDisconnected();
+//        }
+//
+//        private void onConnected() {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 ////        for (View input : mViews) {
 ////            input.setEnabled(true);
 ////        }
@@ -290,16 +336,28 @@
 ////
 ////        onSubscribedToPlayerStateButtonClicked(null);
 ////        onSubscribedToPlayerContextButtonClicked(null);
+<<<<<<< HEAD
 //    }
 //
 //    private void onConnecting() {
+=======
+//        }
+//
+//        private void onConnecting() {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 ////        mConnectButton.setEnabled(false);
 ////        mConnectButton.setText(R.string.connecting);
 ////        mConnectAuthorizeButton.setEnabled(false);
 ////        mConnectAuthorizeButton.setText(R.string.connecting);
+<<<<<<< HEAD
 //    }
 //
 //    private void onDisconnected() {
+=======
+//        }
+//
+//        private void onDisconnected() {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 ////        for (View view : mViews) {
 ////            view.setEnabled(false);
 ////        }
@@ -318,6 +376,7 @@
 ////        mSubscribeToPlayerContextButton.setVisibility(View.VISIBLE);
 ////        mPlayerStateButton.setVisibility(View.INVISIBLE);
 ////        mSubscribeToPlayerStateButton.setVisibility(View.VISIBLE);
+<<<<<<< HEAD
 //    }
 //
 //    public void onConnectClicked(View v) {
@@ -331,6 +390,21 @@
 //    }
 //
 //    private void connect(boolean showAuthView) {
+=======
+//        }
+//
+//        public void onConnectClicked(View v) {
+////        onConnecting();
+////        connect(false);
+//        }
+//
+//        public void onConnectAndAuthorizedClicked(View view) {
+////        onConnecting();
+////        connect(true);
+//        }
+//
+//        private void connect(boolean showAuthView) {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 //
 ////        SpotifyAppRemote.disconnect(mSpotifyAppRemote);
 ////
@@ -379,6 +453,7 @@
 ////                        RemotePlayerActivity.this.onDisconnected();
 ////                    }
 ////                });
+<<<<<<< HEAD
 //    }
 //
 //    public void onDisconnectClicked(View v) {
@@ -387,6 +462,16 @@
 //    }
 //
 //    public void onImageClicked(View view) {
+=======
+//        }
+//
+//        public void onDisconnectClicked(View v) {
+////        SpotifyAppRemote.disconnect(mSpotifyAppRemote);
+////        onDisconnected();
+//        }
+//
+//        public void onImageClicked(View view) {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 ////        if (mSpotifyAppRemote != null) {
 ////            mSpotifyAppRemote.getPlayerApi()
 ////                    .getPlayerState()
@@ -413,9 +498,15 @@
 ////                    })
 ////                    .setErrorCallback(mErrorCallback);
 ////        }
+<<<<<<< HEAD
 //    }
 //
 //    public void onImageScaleTypeClicked(View view) {
+=======
+//        }
+//
+//        public void onImageScaleTypeClicked(View view) {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 ////        if (mSpotifyAppRemote != null) {
 ////            mSpotifyAppRemote.getPlayerApi()
 ////                    .getPlayerState()
@@ -439,6 +530,7 @@
 ////                    })
 ////                    .setErrorCallback(mErrorCallback);
 ////        }
+<<<<<<< HEAD
 //    }
 //
 //    public void onPlayPodcastButtonClicked(View view) {
@@ -462,10 +554,36 @@
 //    }
 //
 //    private void playUri(String uri) {
+=======
+//        }
+//
+//        public void onPlayPodcastButtonClicked(View view) {
+////        playUri(PODCAST_URI);
+//        }
+//
+//        public void onPlayTrackButtonClicked(View view) {
+////        playUri(TRACK_URI);
+//        }
+//
+//        public void onPlayAlbumButtonClicked(View view) {
+////        playUri(ALBUM_URI);
+//        }
+//
+//        public void onPlayArtistButtonClicked(View view) {
+////        playUri(ARTIST_URI);
+//        }
+//
+//        public void onPlayPlaylistButtonClicked(View view) {
+////        playUri(PLAYLIST_URI);
+//        }
+//
+//        private void playUri(String uri) {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 ////        mSpotifyAppRemote.getPlayerApi()
 ////                .play(uri)
 ////                .setResultCallback(empty -> logMessage("Play successful"))
 ////                .setErrorCallback(mErrorCallback);
+<<<<<<< HEAD
 //    }
 //
 //    public void showCurrentPlayerContext(View view) {
@@ -481,41 +599,88 @@
 //    }
 //
 //    public void onToggleShuffleButtonClicked(View view) {
+=======
+//        }
+//
+//        public void showCurrentPlayerContext(View view) {
+////        if (view.getTag() != null) {
+////            showDialog("PlayerContext", gson.toJson(view.getTag()));
+////        }
+//        }
+//
+//        public void showCurrentPlayerState(View view) {
+////        if (view.getTag() != null) {
+////            showDialog("PlayerState", gson.toJson(view.getTag()));
+////        }
+//        }
+//
+//        public void onToggleShuffleButtonClicked(View view) {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 ////        mSpotifyAppRemote.getPlayerApi()
 ////                .toggleShuffle()
 ////                .setResultCallback(empty -> logMessage("Toggle shuffle successful"))
 ////                .setErrorCallback(mErrorCallback);
+<<<<<<< HEAD
 //    }
 //
 //    public void onToggleRepeatButtonClicked(View view) {
+=======
+//        }
+//
+//        public void onToggleRepeatButtonClicked(View view) {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 ////        mSpotifyAppRemote.getPlayerApi()
 ////                .toggleRepeat()
 ////                .setResultCallback(empty -> logMessage("Toggle repeat successful"))
 ////                .setErrorCallback(mErrorCallback);
+<<<<<<< HEAD
 //    }
 //
 //    public void onSetShuffleTrueButtonClicked(View view) {
+=======
+//        }
+//
+//        public void onSetShuffleTrueButtonClicked(View view) {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 ////        mSpotifyAppRemote.getPlayerApi()
 ////                .setShuffle(true)
 ////                .setResultCallback(empty -> logMessage("Set shuffle true successful"))
 ////                .setErrorCallback(mErrorCallback);
+<<<<<<< HEAD
 //    }
 //
 //    public void onSetRepeatAllButtonClicked(View view) {
+=======
+//        }
+//
+//        public void onSetRepeatAllButtonClicked(View view) {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 ////        mSpotifyAppRemote.getPlayerApi()
 ////                .setRepeat(Repeat.ALL)
 ////                .setResultCallback(empty -> logMessage("Set repeat ALL successful"))
 ////                .setErrorCallback(mErrorCallback);
+<<<<<<< HEAD
 //    }
 //
 //    public void onSkipPreviousButtonClicked(View view) {
+=======
+//        }
+//
+//        public void onSkipPreviousButtonClicked(View view) {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 ////        mSpotifyAppRemote.getPlayerApi()
 ////                .skipPrevious()
 ////                .setResultCallback(empty -> logMessage("Skip previous successful"))
 ////                .setErrorCallback(mErrorCallback);
+<<<<<<< HEAD
 //    }
 //
 //    public void onPlayPauseButtonClicked(View view) {
+=======
+//        }
+//
+//        public void onPlayPauseButtonClicked(View view) {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 ////        mSpotifyAppRemote.getPlayerApi().getPlayerState().setResultCallback(playerState -> {
 ////            if (playerState.isPaused) {
 ////                mSpotifyAppRemote.getPlayerApi()
@@ -529,37 +694,62 @@
 ////                        .setErrorCallback(mErrorCallback);
 ////            }
 ////        });
+<<<<<<< HEAD
 //    }
 //
 //    public void onSkipNextButtonClicked(View view) {
+=======
+//        }
+//
+//        public void onSkipNextButtonClicked(View view) {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 ////        mSpotifyAppRemote.getPlayerApi()
 ////                .skipNext()
 ////                .setResultCallback(data -> {
 ////                    logMessage("Skip next successful");
 ////                })
 ////                .setErrorCallback(mErrorCallback);
+<<<<<<< HEAD
 //    }
 //
 //    public void onSeekBack(View view) {
+=======
+//        }
+//
+//        public void onSeekBack(View view) {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 ////        mSpotifyAppRemote.getPlayerApi()
 ////                .seekToRelativePosition(-15000)
 ////                .setResultCallback(data -> {
 ////                    logMessage("Seek back 15 sec successful");
 ////                })
 ////                .setErrorCallback(mErrorCallback);
+<<<<<<< HEAD
 //    }
 //
 //    public void onSeekForward(View view) {
+=======
+//        }
+//
+//        public void onSeekForward(View view) {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 ////        mSpotifyAppRemote.getPlayerApi()
 ////                .seekToRelativePosition(15000)
 ////                .setResultCallback(data -> {
 ////                    logMessage("Seek forward 15 sec successful");
 ////                })
 ////                .setErrorCallback(mErrorCallback);
+<<<<<<< HEAD
 //    }
 //
 //    @SuppressLint("SetTextI18n")
 //    public void onSubscribeToCapabilities(View view) {
+=======
+//        }
+//
+//        @SuppressLint("SetTextI18n")
+//        public void onSubscribeToCapabilities(View view) {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 ////
 ////        if (mCapabilitiesSubscription != null && !mCapabilitiesSubscription.isCanceled()) {
 ////            mCapabilitiesSubscription.cancel();
@@ -575,9 +765,15 @@
 ////                .getCapabilities()
 ////                .setResultCallback(capabilities -> logMessage(String.format("Can play on demand: %s", capabilities.canPlayOnDemand)))
 ////                .setErrorCallback(mErrorCallback);
+<<<<<<< HEAD
 //    }
 //
 //    public void onGetCollectionState(View view) {
+=======
+//        }
+//
+//        public void onGetCollectionState(View view) {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 ////        mSpotifyAppRemote.getUserApi()
 ////                .getLibraryState(TRACK_URI)
 ////                .setResultCallback(libraryState -> logMessage(String.format(
@@ -586,23 +782,41 @@
 ////                        libraryState.canAdd
 ////                )))
 ////                .setErrorCallback(t -> logError(t, "Error:" + t.getMessage()));
+<<<<<<< HEAD
 //    }
 //
 //    public void onRemoveUri(View view) {
+=======
+//        }
+//
+//        public void onRemoveUri(View view) {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 ////        mSpotifyAppRemote.getUserApi()
 ////                .removeFromLibrary(TRACK_URI)
 ////                .setResultCallback(empty -> logMessage("Remove from collection successful"))
 ////                .setErrorCallback(throwable -> logError(throwable, "Error:" + throwable.getMessage()));
+<<<<<<< HEAD
 //    }
 //
 //    public void onSaveUri(View view) {
+=======
+//        }
+//
+//        public void onSaveUri(View view) {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 ////        mSpotifyAppRemote.getUserApi()
 ////                .addToLibrary(TRACK_URI)
 ////                .setResultCallback(empty -> logMessage("Add to collection successful"))
 ////                .setErrorCallback(throwable -> logError(throwable, "Error:" + throwable.getMessage()));
+<<<<<<< HEAD
 //    }
 //
 //    public void onGetFitnessRecommendedContentItems(View view) {
+=======
+//        }
+//
+//        public void onGetFitnessRecommendedContentItems(View view) {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 ////        mSpotifyAppRemote.getContentApi()
 ////                .getRecommendedContentItems(ContentApi.ContentType.FITNESS)
 ////                .setResultCallback(listItems -> mSpotifyAppRemote.getContentApi()
@@ -621,16 +835,28 @@
 ////                            }
 ////                        })
 ////                        .setErrorCallback(mErrorCallback)).setErrorCallback(mErrorCallback);
+<<<<<<< HEAD
 //    }
 //
 //    public void onConnectSwitchToLocal(View view){
+=======
+//        }
+//
+//        public void onConnectSwitchToLocal(View view) {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 ////        mSpotifyAppRemote.getConnectApi()
 ////                .connectSwitchToLocalDevice()
 ////                .setResultCallback(empty -> logMessage("Success!"))
 ////                .setErrorCallback(mErrorCallback);
+<<<<<<< HEAD
 //    }
 //
 //    public void onSubscribedToPlayerContextButtonClicked(View view) {
+=======
+//        }
+//
+//        public void onSubscribedToPlayerContextButtonClicked(View view) {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 ////        if (mPlayerContextSubscription != null && !mPlayerContextSubscription.isCanceled()) {
 ////            mPlayerContextSubscription.cancel();
 ////            mPlayerContextSubscription = null;
@@ -647,9 +873,15 @@
 ////                    mSubscribeToPlayerContextButton.setVisibility(View.VISIBLE);
 ////                    logError(throwable, "Subscribed to PlayerContext failed!");
 ////                });
+<<<<<<< HEAD
 //    }
 //
 //    public void onSubscribedToPlayerStateButtonClicked(View view) {
+=======
+//        }
+//
+//        public void onSubscribedToPlayerStateButtonClicked(View view) {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 //
 ////        if (mPlayerStateSubscription != null && !mPlayerStateSubscription.isCanceled()) {
 ////            mPlayerStateSubscription.cancel();
@@ -678,13 +910,20 @@
 ////                    mSubscribeToPlayerStateButton.setVisibility(View.VISIBLE);
 ////                    logError(throwable, "Subscribed to PlayerContext failed!");
 ////                });
+<<<<<<< HEAD
 //    }
 //
 //    public void onEcho(View view) {
+=======
+//        }
+//
+//        public void onEcho(View view) {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 ////        mSpotifyAppRemote
 ////                .call("com.spotify.echo", new Echo.Request("Hodor!"), Echo.Response.class)
 ////                .setResultCallback(data -> logMessage(String.format("Echo to 'Hodor!' is '%s'", data.response)))
 ////                .setErrorCallback(mErrorCallback);
+<<<<<<< HEAD
 //    }
 //
 //    private void logError(Throwable throwable, String msg) {
@@ -702,14 +941,39 @@
 //    }
 //
 //    private void showDialog(String title, String message) {
+=======
+//        }
+//
+//        private void logError(Throwable throwable, String msg) {
+////        Toast.makeText(this, "Error: " + msg, Toast.LENGTH_SHORT).show();
+////        Log.e(TAG, msg, throwable);
+//        }
+//
+//        private void logMessage(String msg) {
+////        logMessage(msg, Toast.LENGTH_SHORT);
+//        }
+//
+//        private void logMessage(String msg, int duration) {
+////        Toast.makeText(this, msg, duration).show();
+////        Log.d(TAG, msg);
+//        }
+//
+//        private void showDialog(String title, String message) {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 ////        new AlertDialog.Builder(this)
 ////                .setTitle(title)
 ////                .setMessage(message)
 ////                .create()
 ////                .show();
+<<<<<<< HEAD
 //    }
 //
 //    public void onPlaybackSpeedButtonClicked(View view) {
+=======
+//        }
+//    }
+////    public void onPlaybackSpeedButtonClicked(View view) {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 ////        PopupMenu menu = new PopupMenu(this, view);
 ////
 ////        menu.getMenu().add(50, 50, 0, "0.5x");
@@ -729,9 +993,15 @@
 ////                    .setErrorCallback(mErrorCallback);
 ////            return false;
 ////        });
+<<<<<<< HEAD
 //    }
 //
 //    private class TrackProgressBar {
+=======
+////    }
+//
+////    private class TrackProgressBar {
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
 //
 ////        private static final int LOOP_DURATION = 500;
 ////        private final SeekBar mSeekBar;
@@ -784,6 +1054,10 @@
 ////        private void unpause() {
 ////            mHandler.removeCallbacks(mSeekRunnable);
 ////            mHandler.postDelayed(mSeekRunnable, LOOP_DURATION);
+<<<<<<< HEAD
 ////        }
 //    }
 //}
+=======
+//        }
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641

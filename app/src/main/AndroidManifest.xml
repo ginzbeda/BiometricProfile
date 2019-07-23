@@ -21,6 +21,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
+=======
+        <activity android:name=".Authentication"
+            android:label="SpotifyAuthentication" />
+        <activity
+            android:name="com.spotify.sdk.android.authentication.LoginActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+>>>>>>> 680a21516d1336df40a91645a83e67e482a91641
     </application>
 
 </manifest>
